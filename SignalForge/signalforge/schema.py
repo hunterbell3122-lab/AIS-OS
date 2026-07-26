@@ -28,6 +28,17 @@ class RawEvent:
         return asdict(self)
 
 
+# Deterministic label only — derived from the classifier's existing directional_read,
+# not a new LLM call or a trade-proposal schema (sizing/entry/stop-loss/order type are
+# explicitly out of Phase 1 scope; this is just a plainer restatement of the same signal).
+_DIRECTIONAL_TO_BUY_SELL = {
+    "bullish": "Buy",
+    "bearish": "Sell",
+    "neutral": "Hold",
+    "ambiguous": "Hold",
+}
+
+
 @dataclass
 class ClassifiedEvent:
     event: RawEvent
@@ -37,6 +48,10 @@ class ClassifiedEvent:
     summary: str
     crossref_hit: bool = False
     crossref_categories: Optional[list] = None
+
+    @property
+    def buy_sell_signal(self) -> str:
+        return _DIRECTIONAL_TO_BUY_SELL.get(self.directional_read, "Hold")
 
     def to_sheet_row(self) -> list:
         return [
@@ -54,6 +69,7 @@ class ClassifiedEvent:
             self.event.source_subtype,
             self.event.source_url,
             self.event.retrieval_timestamp,
+            self.buy_sell_signal,
         ]
 
 
@@ -72,4 +88,5 @@ SHEET_HEADER = [
     "source_subtype",
     "source_url",
     "retrieval_timestamp",
+    "buy_sell_signal",
 ]

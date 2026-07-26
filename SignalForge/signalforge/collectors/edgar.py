@@ -12,8 +12,9 @@ Docs: https://www.sec.gov/edgar/sec-api-documentation
 """
 
 import logging
+import re
 from datetime import datetime, timezone
-from typing import List
+from typing import List, Tuple
 
 import requests
 
@@ -27,6 +28,22 @@ FORM_TYPES = {
     "4": "insider_transaction",
     "SC 13D": "activist_stake",
 }
+
+# EDGAR full-text search leaves the separate "tickers" field null and instead
+# embeds ticker(s) inside display_names, e.g.
+# "Ramaco Resources, Inc.  (METC, METCB)  (CIK 0001687187)".
+_DISPLAY_NAME_RE = re.compile(r"^(?P<company>.*?)\s*\((?P<tickers>[^)]+)\)\s*\(CIK\s*(?P<cik>\d+)\)\s*$")
+
+
+def _parse_display_name(display_name: str) -> Tuple[str, str]:
+    if not display_name:
+        return "", ""
+    m = _DISPLAY_NAME_RE.match(display_name)
+    if not m:
+        return display_name.strip(), ""
+    company = m.group("company").strip()
+    ticker = m.group("tickers").split(",")[0].strip()
+    return company, ticker
 
 
 def _search_edgar(form_type: str, days_back: int = 1) -> List[dict]:
@@ -64,8 +81,8 @@ def _n_days_ago(n: int) -> str:
 
 def _hit_to_event(hit: dict, form_type: str) -> RawEvent:
     src = hit.get("_source", {})
-    ticker = (src.get("tickers") or [""])[0]
-    company = src.get("display_names", [""])[0] if src.get("display_names") else ""
+    display_name = src.get("display_names", [""])[0] if src.get("display_names") else ""
+    company, ticker = _parse_display_name(display_name)
     filing_date = src.get("file_date", _today())
     accession = src.get("adsh", "")
     cik = (src.get("ciks") or [""])[0]

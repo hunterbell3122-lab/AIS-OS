@@ -36,7 +36,9 @@ These carried over from the design conversation and apply regardless of what any
 6. **Alerting** — Telegram bot, notification only, no approval buttons in this phase; fires only when confidence + cross-reference clears the threshold in config
 
 ### Explicitly Out of Scope for Phase 1
-Entity-resolution knowledge graph, 15-agent structure, bull/bear/red-team agents, backtesting engine, trade-proposal schema, any brokerage connectivity, social/sentiment collectors (Reddit/X/Stocktwits). These are real future phases, not cut features — don't build stubs for them now.
+Entity-resolution knowledge graph, 15-agent structure, bull/bear/red-team agents, backtesting engine, trade-proposal schema, any brokerage connectivity. These are real future phases, not cut features — don't build stubs for them now.
+
+**Changelog, 2026-07-24:** Reddit and X/Twitter collectors were originally listed here as out-of-scope future-phase work. Hunter explicitly asked for them to be pulled into Phase 1 (permanent collectors, not a one-off), acknowledging the reversal of this line. They're implemented in `collectors/twitter.py` and `collectors/reddit.py`, logging to their own "X" and "Reddit" sheet tabs, sharing the same classify/crossref/alert pipeline as EDGAR/Quiver. Still out of scope: Stocktwits, and everything else listed above.
 
 ---
 
