@@ -69,7 +69,8 @@ Why: lowest capital risk (no inventory), fastest content velocity (no filming or
 | Asset storage | Google Drive folder | Dropbox |
 | Editing | CapCut (free) | Adobe Premiere Pro |
 | Voiceover | CapCut built-in voice / TikTok voice | ElevenLabs |
-| Avatar video | **Not used — pure faceless is a locked decision, not a phase** | N/A |
+| Avatar / synthetic product video | **Not used — pure faceless is a locked decision, not a phase.** Higgsfield.ai considered (2026-07-25) and rejected: its core features (Soul ID synthetic identity, URL-to-video auto-generated ad footage) are AI avatars and fake demonstrations by another name — exactly what's excluded above. | N/A |
+| Thumbnails / graphics / product-photo cleanup | Nano Banana 2 (Gemini 3.1 Flash Image) — added 2026-07-25 | — |
 | Automation | Manual + Sheets | Make/Zapier/n8n once volume justifies it |
 | Publishing | Manual TikTok draft upload | Approved scheduler once available |
 | Analytics | TikTok native analytics + Sheets | Looker Studio |
@@ -85,6 +86,7 @@ Total mandatory spend: **$0/month.** Nothing here requires a paid tool to start.
 - [ ] No copied footage, no unlicensed music.
 - [ ] No AI avatar, no on-camera presenter — pure faceless is a hard rule for this channel, not just a compliance minimum.
 - [ ] No face (including partial, reflection, or shadow that reads as identifiable) visible in any frame.
+- [ ] Nano Banana 2 (or any image tool) used only to edit/enhance real photos of the actual product — never to generate a scene, use-case, or result that wasn't actually photographed. If a viewer could mistake an AI-generated product scene for a real photo of real use, it's Blocked.
 - [ ] Caption and hashtags relevant, not spammy.
 - [ ] Product link (once eligible) correct and live.
 - [ ] Video understandable with sound off (captions burned in).
@@ -219,8 +221,9 @@ Views · 2-second hold rate · 6-second hold rate · avg watch time · completio
 
 ## 17. Exact Next Actions
 
-1. Create/convert the TikTok account (Section 4).
-2. Pick the actual first product from `product_board.csv` top 3.
-3. Shoot one faceless video today using `today_2026-07-25.md` script #1.
-4. Post it as a draft, review against Section 6 checklist, then publish.
-5. Log it as a row on the posting calendar and metrics board.
+1. ~~Source real, purchasable candidates for the top products~~ — done: three real Amazon links added to `product_board.csv` (under-sink organizer, stove gap covers, jar opener). These are prop-purchase links, not the eventual TikTok Shop affiliate link.
+2. Create/convert the TikTok account (Section 4) — still not done, requires you.
+3. Order the under-sink organizer (top score, 98) — still requires you.
+4. Once it arrives: shoot the faceless video using `today_2026-07-25.md` script #1.
+5. Post it as a draft, review against Section 6 checklist, then publish.
+6. Log it as a row on the posting calendar and metrics board.
