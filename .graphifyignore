@@ -1,0 +1,15 @@
+.claude/
+*.d.ts
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.docx
+*.pdf
+*.zip
+Wallpaper/
+T-Shirt Pictures/
+organize/
+signalforge-*.json
+claude_desktop_config.json

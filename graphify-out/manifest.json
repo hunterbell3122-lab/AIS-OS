@@ -1,0 +1,242 @@
+{
+  "SignalForge/signalforge/__init__.py": {
+    "mtime": 1784876072.0,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "SignalForge/signalforge/classify.py": {
+    "mtime": 1784876024.0,
+    "ast_hash": "7590afb336ba582c39f2c585adefd562",
+    "semantic_hash": "7590afb336ba582c39f2c585adefd562"
+  },
+  "SignalForge/signalforge/collectors/__init__.py": {
+    "mtime": 1784876072.0,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "SignalForge/signalforge/collectors/edgar.py": {
+    "mtime": 1784939442.4510572,
+    "ast_hash": "763c1d39740bbad2f8c3e86e84af9935",
+    "semantic_hash": "763c1d39740bbad2f8c3e86e84af9935"
+  },
+  "SignalForge/signalforge/collectors/ipo_calendar.py": {
+    "mtime": 1784953592.1376443,
+    "ast_hash": "b608f83e2c1df97ed43a82808192e8e2",
+    "semantic_hash": "b608f83e2c1df97ed43a82808192e8e2"
+  },
+  "SignalForge/signalforge/collectors/macro_calendar.py": {
+    "mtime": 1784951140.3652372,
+    "ast_hash": "80a4ac37f024c7e4cfb56111bd9eab9c",
+    "semantic_hash": "80a4ac37f024c7e4cfb56111bd9eab9c"
+  },
+  "SignalForge/signalforge/collectors/press_wire.py": {
+    "mtime": 1784951469.5157013,
+    "ast_hash": "b20804e4ee419cc1c765f8db1f560bd2",
+    "semantic_hash": "b20804e4ee419cc1c765f8db1f560bd2"
+  },
+  "SignalForge/signalforge/collectors/quiver.py": {
+    "mtime": 1784876006.0,
+    "ast_hash": "fd38885d1b62c4bf3c11351285516d3c",
+    "semantic_hash": "fd38885d1b62c4bf3c11351285516d3c"
+  },
+  "SignalForge/signalforge/collectors/reddit.py": {
+    "mtime": 1784945394.939603,
+    "ast_hash": "8b1d6957a5cbd91e2d40250853a314b3",
+    "semantic_hash": "8b1d6957a5cbd91e2d40250853a314b3"
+  },
+  "SignalForge/signalforge/collectors/twitter.py": {
+    "mtime": 1784945360.1906352,
+    "ast_hash": "0fa2ee6b776ec485704d102eedff41a1",
+    "semantic_hash": "0fa2ee6b776ec485704d102eedff41a1"
+  },
+  "SignalForge/signalforge/config.py": {
+    "mtime": 1784954860.7563672,
+    "ast_hash": "67b8c008cce8f8406467d84c1add5845",
+    "semantic_hash": "67b8c008cce8f8406467d84c1add5845"
+  },
+  "SignalForge/signalforge/crossref.py": {
+    "mtime": 1784876032.0,
+    "ast_hash": "b1df86353778ad04e5077ef3130f523f",
+    "semantic_hash": "b1df86353778ad04e5077ef3130f523f"
+  },
+  "SignalForge/signalforge/main.py": {
+    "mtime": 1784992814.3342152,
+    "ast_hash": "dc6ab4bbf2c492f9506a72cc498e3bf7",
+    "semantic_hash": "dc6ab4bbf2c492f9506a72cc498e3bf7"
+  },
+  "SignalForge/signalforge/normalize.py": {
+    "mtime": 1784876012.0,
+    "ast_hash": "283d0934eb1972ac49585370f3f67472",
+    "semantic_hash": "283d0934eb1972ac49585370f3f67472"
+  },
+  "SignalForge/signalforge/paper_trading.py": {
+    "mtime": 1784954906.9509366,
+    "ast_hash": "3a817a81ae7a905a573d684d29b4de2d",
+    "semantic_hash": "3a817a81ae7a905a573d684d29b4de2d"
+  },
+  "SignalForge/signalforge/schema.py": {
+    "mtime": 1784944329.7607818,
+    "ast_hash": "2f5efa589d75620bb4af733a6852be80",
+    "semantic_hash": "2f5efa589d75620bb4af733a6852be80"
+  },
+  "SignalForge/signalforge/sheets_log.py": {
+    "mtime": 1784992340.0976894,
+    "ast_hash": "7ac3bb3bd5a4482a5d6e3b271eff7ae4",
+    "semantic_hash": "7ac3bb3bd5a4482a5d6e3b271eff7ae4"
+  },
+  "SignalForge/signalforge/telegram_alert.py": {
+    "mtime": 1784953061.732049,
+    "ast_hash": "7163b0afdf875ad9fd0df62a11ec077c",
+    "semantic_hash": "7163b0afdf875ad9fd0df62a11ec077c"
+  },
+  "SignalForge/signalforge/tests/__init__.py": {
+    "mtime": 1784876072.0,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "SignalForge/signalforge/tests/test_crossref.py": {
+    "mtime": 1784876082.0,
+    "ast_hash": "a978b1c044d2217f2bbd1e96f489a19b",
+    "semantic_hash": "a978b1c044d2217f2bbd1e96f489a19b"
+  },
+  "CLAUDE.md": {
+    "mtime": 1784859429.9371629,
+    "ast_hash": "026057422094b0c5454e5e149b3ddfcc",
+    "semantic_hash": "026057422094b0c5454e5e149b3ddfcc"
+  },
+  "EXPANSIONS.md": {
+    "mtime": 1784511372.4127846,
+    "ast_hash": "99a0c1db08b7a22f93fbbd99e249d868",
+    "semantic_hash": "99a0c1db08b7a22f93fbbd99e249d868"
+  },
+  "PRODUCT.md": {
+    "mtime": 1785119377.066478,
+    "ast_hash": "81ee8dfc50582ef37b785639a006f2dc",
+    "semantic_hash": "81ee8dfc50582ef37b785639a006f2dc"
+  },
+  "README.md": {
+    "mtime": 1784511372.416788,
+    "ast_hash": "3c74e5fbd6bdb861942a3d59180dc863",
+    "semantic_hash": "3c74e5fbd6bdb861942a3d59180dc863"
+  },
+  "SignalForge/signalforge-claude-code-brief.md": {
+    "mtime": 1784858467.2185683,
+    "ast_hash": "eadbfab8acf138fb24842880fa916b76",
+    "semantic_hash": "eadbfab8acf138fb24842880fa916b76"
+  },
+  "SignalForge/signalforge/CLAUDE.md": {
+    "mtime": 1784945453.3377457,
+    "ast_hash": "5efc261c8477dcbfb000b8070b4c206e",
+    "semantic_hash": "5efc261c8477dcbfb000b8070b4c206e"
+  },
+  "SignalForge/signalforge/README.md": {
+    "mtime": 1784876114.0,
+    "ast_hash": "1a93e5684130033a97a4be5518d4a97d",
+    "semantic_hash": "1a93e5684130033a97a4be5518d4a97d"
+  },
+  "SignalForge/signalforge/docs/signalforge-phase0.md": {
+    "mtime": 1784876118.0,
+    "ast_hash": "86ce511b35a56390f724a89c6ef36e1f",
+    "semantic_hash": "86ce511b35a56390f724a89c6ef36e1f"
+  },
+  "SignalForge/signalforge/requirements.txt": {
+    "mtime": 1784955033.8747349,
+    "ast_hash": "77b6da4738f100faf7095d0fc21def5d",
+    "semantic_hash": "77b6da4738f100faf7095d0fc21def5d"
+  },
+  "TikTokShop/01_build_playbook.md": {
+    "mtime": 1785030139.5047898,
+    "ast_hash": "fa8579d9d272fc8b0a4a14b1e49fac88",
+    "semantic_hash": "fa8579d9d272fc8b0a4a14b1e49fac88"
+  },
+  "TikTokShop/README.md": {
+    "mtime": 1785028859.8049169,
+    "ast_hash": "43e4245bbec22c9e4da83343b1b22539",
+    "semantic_hash": "43e4245bbec22c9e4da83343b1b22539"
+  },
+  "TikTokShop/today_2026-07-25.md": {
+    "mtime": 1785029765.6547215,
+    "ast_hash": "8f1177c76a0119b9a5e30091973c7778",
+    "semantic_hash": "8f1177c76a0119b9a5e30091973c7778"
+  },
+  "TikTokShop/weekly_optimization.md": {
+    "mtime": 1785029046.9100897,
+    "ast_hash": "dd4e4a40d18f79816537a3c135c6023d",
+    "semantic_hash": "dd4e4a40d18f79816537a3c135c6023d"
+  },
+  "advnturhub-master-build-prompt.md": {
+    "mtime": 1785031253.7287247,
+    "ast_hash": "b6ce95ee78c548ccf6336275c29bd2c2",
+    "semantic_hash": "b6ce95ee78c548ccf6336275c29bd2c2"
+  },
+  "aios-intake.md": {
+    "mtime": 1784514263.8072639,
+    "ast_hash": "e3d3f58664a40898647dff298249f9f6",
+    "semantic_hash": "e3d3f58664a40898647dff298249f9f6"
+  },
+  "connections.md": {
+    "mtime": 1785049988.1764808,
+    "ast_hash": "da4a60e8492dc3a513c24724b35f448f",
+    "semantic_hash": "da4a60e8492dc3a513c24724b35f448f"
+  },
+  "context/about-business.md": {
+    "mtime": 1784514310.0159423,
+    "ast_hash": "d61de36fb11278d4dd9fd8ad9226e2c1",
+    "semantic_hash": "d61de36fb11278d4dd9fd8ad9226e2c1"
+  },
+  "context/about-me.md": {
+    "mtime": 1784514287.1738164,
+    "ast_hash": "5a7818a3f81df0ee691493cb6d943bbd",
+    "semantic_hash": "5a7818a3f81df0ee691493cb6d943bbd"
+  },
+  "context/priorities.md": {
+    "mtime": 1784514324.9207535,
+    "ast_hash": "b9cc812945c4e98b04bb9cf1956a755f",
+    "semantic_hash": "b9cc812945c4e98b04bb9cf1956a755f"
+  },
+  "decisions/log.md": {
+    "mtime": 1785119485.9853373,
+    "ast_hash": "15561345c21115cbd6a96f2dd41733b1",
+    "semantic_hash": "15561345c21115cbd6a96f2dd41733b1"
+  },
+  "guide_studio.md": {
+    "mtime": 1785019101.133966,
+    "ast_hash": "7d25238fbc21f62ae3bab3dcf560d8cf",
+    "semantic_hash": "7d25238fbc21f62ae3bab3dcf560d8cf"
+  },
+  "references/3ms-framework.md": {
+    "mtime": 1784511372.4300387,
+    "ast_hash": "78d59f47ec9f4f414bf4e09a83a0a9d5",
+    "semantic_hash": "78d59f47ec9f4f414bf4e09a83a0a9d5"
+  },
+  "references/voice.md": {
+    "mtime": 1784514346.195521,
+    "ast_hash": "5e7256422e79ee17df0d02d24c1eb1db",
+    "semantic_hash": "5e7256422e79ee17df0d02d24c1eb1db"
+  },
+  "signalforge-claude-code-brief.md": {
+    "mtime": 1784858270.7959907,
+    "ast_hash": "eadbfab8acf138fb24842880fa916b76",
+    "semantic_hash": "eadbfab8acf138fb24842880fa916b76"
+  },
+  "signalforge-phase0.md": {
+    "mtime": 1784858487.7852995,
+    "ast_hash": "86ce511b35a56390f724a89c6ef36e1f",
+    "semantic_hash": "86ce511b35a56390f724a89c6ef36e1f"
+  },
+  "tiktok_shop_agentic_operating_system.md": {
+    "mtime": 1785028515.0664988,
+    "ast_hash": "a4fa48806e586c139ccc11c2e8944085",
+    "semantic_hash": "a4fa48806e586c139ccc11c2e8944085"
+  },
+  "DESIGN.md": {
+    "mtime": 1785122525.4793358,
+    "ast_hash": "e772fa096b24ecc256621a9828380125",
+    "semantic_hash": "e772fa096b24ecc256621a9828380125"
+  },
+  "advnturhub-homepage.html": {
+    "mtime": 1785122512.8209107,
+    "ast_hash": "b2e2caf28a4e524d36fabb6771fc52ca",
+    "semantic_hash": "b2e2caf28a4e524d36fabb6771fc52ca"
+  }
+}

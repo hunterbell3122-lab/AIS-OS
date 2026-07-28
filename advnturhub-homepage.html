@@ -1,0 +1,647 @@
+<!--
+THESIS: a homepage that proves "executable plan, not a listing" in the first viewport, refusing the generic travel-site hero-plus-feature-cards template.
+OWN-WORLD: Trailhead-at-Dusk — deep warm charcoal ground, the logo's own gold→red-orange gradient used rarely and at page scale, topographic contour-line texture, hexagon motif inherited from the mark, Space Grotesk + DM Sans.
+STORY: a visitor stops wondering "where should we go" and sees one full adventure plan (cost, difficulty, parking, backup) proven immediately, then explores more of the same.
+FIRST VIEWPORT: nav (logo left, links + CTA right) over a full-bleed dusk hero; headline + subhead left-aligned, one real "proof" adventure-logistics panel anchoring the right/lower half at natural scale, not a generic hero graphic.
+FORM: editorial single-column long scroll; the trust section pairs manifesto copy with a checklist of the logistics categories every adventure page must answer, instead of a 3-icon feature grid, per the brief's anti-cliché instruction.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AdvnturHub — Find Your Path</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gradient: linear-gradient(135deg, #FBB040 0%, #F5773B 50%, #F04937 100%);
+    --charcoal: #15120F;
+    --charcoal-2: #1D1915;
+    --charcoal-3: #262019;
+    --ash: #B0B0B3;
+    --paper: #F5F1EA;
+    --paper-dim: #DCD6C8;
+    --border: rgba(245,241,234,0.10);
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--charcoal);
+    color: var(--paper);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hero-grid > *, .trust-grid > *, .card-grid > *, .footer-top > *, .proof-facts > *, .card-meta > * {
+    min-width: 0;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
+  }
+
+  /* topographic contour texture, used as a fixed low-opacity backdrop */
+  .contours {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.16;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Cg fill='none' stroke='%23B0B0B3' stroke-width='1'%3E%3Cpath d='M-20 40 Q 100 0, 220 40 T 460 40 T 700 40'/%3E%3Cpath d='M-20 90 Q 100 50, 220 90 T 460 90 T 700 90'/%3E%3Cpath d='M-20 140 Q 100 190, 220 140 T 460 140 T 700 140'/%3E%3Cpath d='M-20 200 Q 100 150, 220 200 T 460 200 T 700 200'/%3E%3Cpath d='M-20 260 Q 100 310, 220 260 T 460 260 T 700 260'/%3E%3Cpath d='M-20 320 Q 100 280, 220 320 T 460 320 T 700 320'/%3E%3Cpath d='M-20 370 Q 100 340, 220 370 T 460 370 T 700 370'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 600px 400px;
+    animation: drift 90s linear infinite;
+  }
+  @keyframes drift {
+    from { background-position: 0 0; }
+    to   { background-position: -600px 400px; }
+  }
+
+  /* ---------- nav ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(21,18,15,0.86);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem clamp(1.25rem, 4vw, 3rem);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .brand { display: flex; align-items: center; gap: 0.65rem; }
+  .brand img { height: 40px; width: auto; display: block; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.9rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .nav-links a { opacity: 0.86; transition: opacity 0.2s; }
+  .nav-links a:hover, .nav-links a:focus-visible { opacity: 1; }
+  .nav-links a:focus-visible { outline: 2px solid #F5773B; outline-offset: 4px; border-radius: 3px; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.7rem 1.4rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s;
+  }
+  .btn-primary {
+    background: var(--gradient);
+    color: var(--charcoal);
+  }
+  .btn-primary:hover, .btn-primary:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -6px rgba(245,119,59,0.45);
+  }
+  .btn-primary:focus-visible { outline: 2px solid var(--paper); outline-offset: 3px; }
+  .btn-ghost {
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid var(--border);
+  }
+  .btn-ghost:hover, .btn-ghost:focus-visible {
+    border-color: rgba(245,241,234,0.35);
+    background: rgba(245,241,234,0.04);
+  }
+
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+  }
+  @media (max-width: 480px) {
+    nav { padding: 0.75rem 1rem; }
+    .brand img { height: 30px; }
+    .btn-primary { padding: 0.55rem 0.85rem; font-size: 0.8rem; }
+    .proof-facts { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative;
+    z-index: 1;
+    padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(3rem, 8vw, 6rem);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(2rem, 6vw, 4rem);
+    align-items: center;
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+  }
+
+  .eyebrow-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--ash);
+    background: var(--charcoal-2);
+    border: 1px solid var(--border);
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+  }
+  .eyebrow-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #F5843C;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 5.4vw, 4rem);
+    font-weight: 700;
+    max-width: 14ch;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: #F5843C;
+  }
+  .hero p.lede {
+    margin-top: 1.35rem;
+    font-size: 1.15rem;
+    color: var(--paper-dim);
+    max-width: 46ch;
+  }
+  .hero-ctas {
+    margin-top: 2.1rem;
+    display: flex;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+  }
+
+  /* proof panel: the hero's real evidence, not a stock graphic */
+  .proof {
+    position: relative;
+    background: var(--charcoal-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.6rem 1.6rem 1.4rem;
+  }
+  .proof::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: var(--radius);
+    padding: 1px;
+    background: var(--gradient);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  .proof-label {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    background: var(--gradient);
+    padding: 0.25rem 0.6rem;
+    border-radius: 5px;
+    margin-bottom: 0.9rem;
+  }
+  .proof h3 { font-size: 1.3rem; font-weight: 600; }
+  .proof .sub { color: var(--ash); font-size: 0.88rem; margin-top: 0.2rem; }
+  .proof-facts {
+    margin-top: 1.15rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7rem 0.5rem;
+  }
+  .fact {
+    background: var(--charcoal-3);
+    border-radius: 9px;
+    padding: 0.55rem 0.4rem;
+    text-align: center;
+  }
+  .fact .k { display: block; font-size: 0.66rem; color: var(--ash); text-transform: uppercase; letter-spacing: 0.05em; }
+  .fact .v { display: block; margin-top: 0.15rem; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.95rem; }
+  .proof-note {
+    margin-top: 1.1rem;
+    font-size: 0.85rem;
+    color: var(--paper-dim);
+    border-top: 1px solid var(--border);
+    padding-top: 0.9rem;
+  }
+
+  /* ---------- section shell ---------- */
+  section { position: relative; z-index: 1; padding: clamp(3rem, 7vw, 5.5rem) 0; }
+  .section-head { max-width: 62ch; margin-bottom: 2.5rem; }
+  .section-head h2 { font-size: clamp(1.7rem, 3.4vw, 2.35rem); font-weight: 600; }
+  .section-head p { margin-top: 0.8rem; color: var(--paper-dim); font-size: 1.05rem; }
+
+  /* ---------- filter bar ---------- */
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 2.2rem;
+  }
+  .filter-chip {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--paper-dim);
+    background: var(--charcoal-2);
+    border: 1px solid var(--border);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .filter-chip:hover, .filter-chip:focus-visible { border-color: rgba(245,119,59,0.55); color: var(--paper); }
+  .filter-chip.active {
+    background: var(--gradient);
+    color: var(--charcoal);
+    border-color: transparent;
+    font-weight: 700;
+  }
+
+  /* ---------- adventure cards ---------- */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.4rem;
+  }
+  .card {
+    background: var(--charcoal-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    transition: transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s, border-color 0.25s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(245,119,59,0.4);
+    box-shadow: 0 16px 40px -12px rgba(240,73,55,0.28);
+  }
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; }
+  .hex {
+    width: 46px; height: 46px;
+    flex-shrink: 0;
+    clip-path: polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0% 50%);
+    background: var(--gradient);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hex svg { width: 22px; height: 22px; stroke: var(--charcoal); fill: none; stroke-width: 1.8; }
+  .example-badge {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ash);
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .card h3 { font-size: 1.15rem; font-weight: 600; }
+  .card .cat { font-size: 0.82rem; color: var(--ash); margin-top: 0.15rem; }
+  .card .hook { font-size: 0.92rem; color: var(--paper-dim); }
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: auto;
+  }
+  .meta-chip {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    background: var(--charcoal-3);
+    color: var(--paper-dim);
+  }
+  .meta-chip.cost { color: var(--charcoal); background: var(--gradient); }
+
+  /* ---------- trust / positioning: manifesto + second proof panel, not icon cards ---------- */
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.85fr;
+    gap: clamp(2rem, 5vw, 3.5rem);
+    align-items: start;
+  }
+  @media (max-width: 880px) { .trust-grid { grid-template-columns: 1fr; } }
+  .manifesto p { font-size: 1.08rem; color: var(--paper-dim); margin-bottom: 1.1rem; max-width: 56ch; }
+  .manifesto p strong { color: var(--paper); font-weight: 600; }
+  .manifesto .rule {
+    margin-top: 1.6rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.4rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .checklist {
+    background: var(--charcoal-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+  .checklist h3 { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; }
+  .checklist ul { list-style: none; display: grid; gap: 0.65rem; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: 0.92rem;
+    color: var(--paper-dim);
+  }
+  .checklist li svg { flex-shrink: 0; margin-top: 0.15rem; width: 15px; height: 15px; stroke: #F5773B; fill: none; stroke-width: 2.4; }
+
+  /* ---------- footer ---------- */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border);
+    padding: 3rem 0 2rem;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.3fr repeat(3, 1fr);
+    gap: 2rem;
+    padding-bottom: 2.2rem;
+  }
+  @media (max-width: 780px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+  .footer-brand img { height: 34px; margin-bottom: 0.8rem; }
+  .footer-brand p { color: var(--ash); font-size: 0.88rem; max-width: 32ch; }
+  .footer-col h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ash); margin-bottom: 0.9rem; }
+  .footer-col ul { list-style: none; display: grid; gap: 0.55rem; }
+  .footer-col a { font-size: 0.9rem; color: var(--paper-dim); transition: color 0.2s; }
+  .footer-col a:hover, .footer-col a:focus-visible { color: var(--paper); }
+
+  .legal-strip {
+    border-top: 1px solid var(--border);
+    padding-top: 1.4rem;
+    font-size: 0.78rem;
+    color: var(--ash);
+    line-height: 1.7;
+  }
+  .legal-strip p { margin-bottom: 0.5rem; max-width: 90ch; }
+  .legal-strip .copyright {
+    margin-top: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contours { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="contours" aria-hidden="true"></div>
+
+<header>
+  <nav>
+    <a href="#top" class="brand">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAABgCAYAAAD/yovmAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAtGVYSWZJSSoACAAAAAYAEgEDAAEAAAABAAAAGgEFAAEAAABWAAAAGwEFAAEAAABeAAAAKAEDAAEAAAACAAAAEwIDAAEAAAABAAAAaYcEAAEAAABmAAAAAAAAAEgAAAABAAAASAAAAAEAAAAGAACQBwAEAAAAMDIxMAGRBwAEAAAAAQIDAACgBwAEAAAAMDEwMAGgAwABAAAA//8AAAKgBAABAAAAlgAAAAOgBAABAAAAYAAAAAAAAACtizBlAAAaQElEQVR4nO2deXxVxfn/359zs0MIkYqoiIpal6K4YPYQFLTVGr1YtbbuC2r1p6J1+WpBEJd+61KXr9W61Cr9utUKV9N+3QWSkBBwQ5DFKoKiAgoJ2Rdyn98fc4KXCFUg5N4snxchJ+fMzHnmzGdmnnnmmRnoRS960Yte9KJHQ9EWINZRd31uHDAQ8RNEHLAQsarP7bNboi1bLKOXWO0goPba3ETEEOBQxBhgCKIGkYRIA1YgXpP0NmJFyi2lDdGVOvbQSyyg9qocEH2BoXhkSRoJ7Iz4AvEmUI74EuFJ2stk+ZLGAIMQXxv2JqIc8W9JtSmTSy26OYo+eiyxasfnCEhH7A/kI3KARMTHiFcR70pa0+eO2RvaxxVQNyEv0bBdEVnAGMSPEXWSShAlwCJEZcpNpeHOzVlsoEcRq+byHE+ulTkQMRpxGNAqab7JXgMtRFbZ9+6yrSJD3cTcOHnaGTgEcSxiuP9l5yPewOllX6VMKP0OSbsruj2xai/LiQcGIw5GHAP8GFEDlCGKEUsl1fa5Z3aHdF/1N+d5QBriQGA0IhvR13WTvAa8h7Qi+YaSpo54X6yi2xGrZlwuBMLJiL2AIyWNQuyOWI2YgSPUZ4Y1pN5fvkNlqZuSK0kpiH0k8hFHAbsgvjJ4EzEH+ERSbfL1JTtUls5GtyBWzbhsIfVD7AeWg8gDUhHLEG8izZNY1feBsqiZCATU356XaLA7Ihs4FrGXRC1SMaIEsQSoTL6mpMsr/12WWDUXZHsGA+TsS/mII0Ee4gOn19hCxNrUh8pboy3r5lD/33lxkgYiDgeOQxyECAPzfL1sEWJV8tUlXVL571LEqjkvOw7YDTEcONofibUgyoAZiI8Q1akPl3epGt9wZ74HpIMNQ/oZ4nBEMmKBxKvAAsTKpCtLuoxRNqaJJWD92VlJOAPlCElHI4YgKnFEKjaxXFCf+tiO1Zc6Cw135wtIlas0BUj5YAMQy028IZiLWGFGffIVsauXxRyxqs/MBiwVtL8/osoD6+/0JZWAlcvTl6mPl3frURVAw735CJIN9vT1xnx57A2sQ5qJmINYJKkm8TezYqqVjglirT89S4h0iUOAHEQmIg5pKeJ1xPvA6n5PlndJfaOj0Hh/fhzS7mAjcK33QYgmsAp/ALAA+CbpkuKof6eoEav6l1kezlh5KNJIp1+wweBdibcQH5qoSvvbnJiqibGCxgfyPcSPkA4GOwZpOCJJYgFiBuJd4IvEccVRMcp2KrHWn5KZAAxGykCWJ2koogqpDKwE6WODurSnu4e+1FlofGikJFKBA51eRi6QbmKZxEyDOYgVSRcUd9pk+Q4lVvXYTEzqAwxF5PjzcQMRn/tEKkN8nvbcnOYdKUdPQtOf8zEpGbE3YqTESGAPxNdIMxBzJJYY1CSeO2uHydHhxKo6MVOINMRP5AyB2UgJiE98+8x7iFVpz8+JSfvSD0X95DwQg4E1KZNKY7ZiNP2lIB5sMFI22FFI+yNqgVJkZUgfSFQmnNWxyn+HEKvqhEwPsYvEwUABYrjBBomFJt6QUyrXpU2r6Db6Uv3kvMGIRxEPyqMoeUJptEX6XjQ9PtJD7OLsZDoGbJgkId5BzATeR6xOOGPWdlf6bSZW5XEZ8ZIGI0b4/fp+EtVABdIsZEuAmrRQxfbKGHOouyk3QR6/RxqPxweIU1MmlH4cbbm2Bi1TC2TObWgYzth8JNAXschEsaACsTLhV7O2qTX+wcQSUPmzzGRgb5wPUp5vrPwCMRsoQXzav6iicVsE6Sqon5gHshMRf8WjP55API7H+JQbS+uiLd+2oPlvBZhzdNxXIt+cbjYQWImnWWBzJH1soj7h1Jk/KM3/SKzKMRnCuXwcAGRJ5CGlIT7FWb7nIr7o/6+KLjPVsL2om5C7u8QLeBqBxwt4ZOGxM2I84rGUG7q2Y5+ApqcLEhF7uAGXRoENRawH/AGXLZK0Pv4XM7eo2nyHWFWjMwQMMBgmaQyyYYiAwftyUygfAF+nvzK3S3/AbUHdjbkJ8vR7ZFfiqRTxa+I4CXG3PNYgnZr8XyXzoi1nR6L52YIAYhDiMMQoSYcC5k/2v46YD6yOHztzEz5sQqzKozKGAePwGAo0yrGzHGkxUN3/te6jfG8t6m7IBdHWBbZKOkMerxNHH3MK/JmIVxDnJl9f+nW05d0RaHl+lBA7AQcj8hC5iBRgKeJP8cGZ89vCxrWLeyTQgPFfiGVho2GnN+Z2puyxjD0wJuJW6UyxsM20evbE4yv1163AoUjHIi5rvCv/tqRruo4nwg9F/KkzDVgLzGx+YdQsQV/gAOA3QCawRWK1AjPS35r7YWcJ2xVQe11OAsaVOB/5UpkeCdeEBxLHI5LuYwMvk6CbDHtc0mUG5Q13572a/NvYN0FsKxKcflUDzGsJjTqs/fP2xOpRqLkwG5ynaW3qo5v34aq7NhfgaIzzEOswbmtdF/5aAaYQp9EESCfMQsNeBh4BrgFuA30EfNpZeYk1eNEWIJowYyjwGHBk7UXZWwjEHhiTgTTgAWAGGyyHMOeDBRBH4DGeMEi6B5gJHIa4tuGe/JROyUi0sZkq2WOJVXN+dh8Z1wOnIN1n0j7tw9T9NjcBuBIYAczGeCS8MtyXMDcAAzHeQqzF41wFNEbxrEFM8m17Z0uc1nhffvf/xpsxWnX/TG8G1edkeRbmbIOz3B3LALuz5pLsAW1haq/KwcyONrPzDCoxbtvwWetqa7UzLMzRZnxEqy6Xp4eBVDwmmxgit/LmDoyAwe8MDolOLqOLHkcsTwKUA9woMIx7gSWIEyT9rvbSnGQXUnuAJoHSgEfNbAbN7E+YKwAjbHdYqy3G4wFECR5HKKDx6qM4sCcQ/xDsI3Fz4wMjB2xRoG6KHkesqjOzBmFMAnYDngMmIa4DvjFxkYlxtVfk9MHsSsyOBEoF929Y0hogbNcB+2K8RJh/pD5QZgqwmgC3g+sS8RgTGBColbjdxCLgOLCLGv+U36MGSpsSKyYclXccqs/MTgSuA44C3jFjSupfymuBV4QmCVolJgK3AhcIrcPs1g3LNqwmzM8J6xSMr2jlztRHy2sAkieWIo+Z8ngYkUqAyXgMMWOJYBJSHWg80lGND+ZHL/OdjE2J1Y3t6tW/ypKZnYbZhWBrMSYF0r0V9bflpcTtFQgjphp2L0Y/jCswUg37i9CscJUNoNXGG5ZiYR4kzHuRaSdfV7qBAA+AFSMOJ8BVgd28BEQR2KNgA8BuQdozWvnfkbCeOir0G+KDZUwAEkH3YPa60jQEeJCADgvsF2gC/oh4xo9QinFfnz/ObgHqkZ6R8Q9a7fF+T313EazJViugW5DWIs6Rp9ykK0qagXuQikFHSlzb9PDI5M7Kd2dBPXVUWPXLrJ3MmALsB7yE8efAHoEEC9sNwFl43IfHnv0eLF+PmAC8gHGbYBVA+ptz6xXPn4FxmFZt7h3Jl5dCgFI8HgBeRCwDMI+vwCYBqwzOMTi16dGC7vXdv7fF6oY6VvVpWfGCiwXHg5Zg3OwNVDWtnC7TWQIQOQrozsY/j9xJeCuB3xjM7HNv2cZ00l6qCKe9WFGTNm3OFt+VeGHxBom7aOXS+FNmLgdIvqwEoEzibkG8xATfua774HtbrG6mY60/JQszjjbjaoM6sElIHxLmCMJMNDPPjP8BPkJ2knlMiDvcS+l7f9na1Pu3bQORhLNnNSScNWuT1TBJl5W0Ih4zeBHYF+zmxsdGpndEHmMBPUrH8ivRvsBtQDrwsBkvemnamTBTMIZg/J1Wm4jHtUhr5XGxArq4+ZmC+I6WJ+k3xdWIWxBLgePlMa7prwWBjn5PNNCjdKyqkzP7YnYjxmHADIx7vRRhrTYeY4yZzaeVm1Mmza5RgJfxuAnYYB4T8Ti5ZdqoDv02ZuB5fAhMARqBq8AKmp4Y2ZGviQ56io5VFcz0MJ0FOh34HJjgJWg1YU7CdClQhXETYadgJ11R0kqAqXi6S5AsT6cBfTparoRxxYaYjngCGChpiqTdO/o9nY6eoGOtPykLjFzXWpmB/beMedZqB1jYbsIsmTAP0Mqrff4we2O8pIuKmxXgPuBKwlxrZjU7Qr7EC4sbgTuBMsOyDK5p/ltB4o54VzTR/bpCs90FtwC7gZ7FmGph60eYmzH9BOMVa+X+vvd+VzlPOGdWtRF+JP6XM5cl/GLHrRI2WIk0CfS1xPnAKY3/W9BN+guHbkWsqhMyE8241ox8g3lgt1gzzRbmEjNOAj6yVm5KfaiscktpJJ654/ecSrqgGGAW2H0GSYgJcpvhdk10Zx2r6vhMD+M04HxJ3whusiZWEOYohXUVRiNhphC2D6ItK0DiebNaJR6WeBnYX2JS8zMFadGWa5vQXXWstikbYCJGopn90Yy3rMkG0spkMxtA2B4jzAv9noidbZGSzi2uNJhs8DFwEnB+87Ndzyrfbe1YlT/L3AnjZpzdKoTxcP8XKzYADYhywb8Ic1e/p2NrF8CwK5APBLcDLYjfIvJani+IrmBbiW5px6o6NjPezC4BOw5jMcbk/kUVVQDpb8ytJqDfgc4nrK+iLevmkHjWrDDiWeApjF2BmzHtFm25tgbdrsWqHJMBMFroalA9MBmzJZFh+v9zTlPaS3PWpoW2PMcXbSScMasR8XvE27itxa9u/kdBQrTl+qHYXIvVZb0a/bzsY2a3SgzAmI+nXfA0rurETOThqo0n/zffc8/dl+cn3v5eux9FpLHZtLX5++3T2piOAeJjYIRhFyDKW6aPmhY/dsv7I8QMnOyboMsSa93RGakYEyS5xZJu7/f/Ab8G+W4L/j8fm+a+/X1F/inQppEjQv/ndNoutfGW2j/dbDob74r+wGRgEbB4M4FiC92pxQIGA9Vm9hgABjKB+X2+gWTu741ttW3yDWxjgdum8drS8eO3RWojgvnD542x29oU81M0wIQJZPj/ufdt+n5jE9KZf9dAkgH71v591OK+p83cvi+1g+Hk3fRelyVW+ltzF+PW/PUiyuiWo8JexAC6s+W9F1FEd7W89yK66HZ2rF7EBnp1rF7sGGymxdp0VKjNB4o2QqGiZKA1GCxsbnd/Z2Bv/88m4ONgsLDOfxYP/ARYHgwWVm0mTQ83t/hVMFhYEwoVpQID/PCEQkUJwIFAmxNeDbA0GCwM+3H3A74E6tqug8HCmkAgwAsvhPbEbWL3I6DaT7Mt3lBgdTBY+B1HQj8/fYLBwuWR1/6zSHkagU/a8hp1dEUdyy+MC4DRkydPbv/458CTwETgfuDSds8vBM4MhYoUChUlhkJFkYsXkoA/Ar8LhYqScN4Rl4fDavsmacAVftoTgXOA+Ii4t/txIq9JTk4GuAz4FXA58DiQ48eLB24CDg6FirxQqOigUKgo0lXm58D4zVwD7ILb2G0KcAcw0Sdb1NFVdax9gXHAhYceekTfds8SgDLgl8CDwMYl7GPHntgCPAuMwrVqf4h87iMJOB44HQgAkauUvwH+H26ztcn+T6R3RB8/zibXcgpHsv/3M8A6XIvWhlTgcNx+r1NgkzWGCREyRF6DK6tq4HrcZiYj/LSiji6nY/ktzOnA67jafvT06f9sH2xDMFhYz6aF7tzdYR6uRTsGtwTsi3ZxG3HTQN9ZOBEMFto555zZAJwMHBEMFjYGg4VbI34cjph7AcUR9+Nx+3KdhdscdmvKwID+uG/S4ssfk4hpYgH7A/nA87gafJFk/doH8ruTA2nXmY8de2ITUIJrlZ4OBgs354+1EHhiO+RL2sKzNcAkYBmwU8T9JmACcCPwHq4VakMYGBQKFQ3aQprCLft/Fld2MbsII2aJFQgEwOkVz+EK4FLc/p6RK4gX44gzAFd4L0am4bdaTcALfrhIbABewSnSdbgCKyWCnM3Nzfjx2k8ENwJ/w81XxgP/58enpaUFYLaLY/OBS4CP/HituNZ3OY5Qk4EFEemW4LxJ947IWxtq/PcI2AenU27Rd79T8X26eeVRGWdXHpXx004RppMgiVDonzFbgboDWkKjLmoJjboo8l63/+BmRjB4Qo87niXa6PbE6kV00N5tJoA4vHJ0xmLgy/Q350bloOpedA20TBsVQOyKMRTxSeSz9sR6B2czuhdYUzkmoxz/oOr01+fG1NA2FCoCNyJrc+xtW9nsAQSDhc2+cbXtpy2vzcFg4YaINBKAlmCw0EKhIvnhWvl2tLfBTzsuGCxsiYjT6v8WbjS30Rzhp5PU9kyiKRg80aZPf6nNoNkcITu+/GFfjnAoVBTn5yGmKrYETc8XJAFDJGUAR/CtGSfSpLIpsdJnzP2g8uiMK4GBuP3JR/vbVNdX/TRzLo5kS4Ha/q9E/eTU4cCvcQVfBVTgCmt/YNdQqOgOnEF0MM4YmeKHXRMKFT0cDBY24Ar+dD/uUpzh8se4Qj4MR54mnLljBG4kmIQboc7DGWbX44b9fwfaTrQ60A+zHvDMKJo+/aX3gWv9d94DnIb7xkm4UWM88C/cQUc/xY083+zA77VNaH5uFIi+gh8jMoBDDUsAlprxvGAR2Pr4sZueKf0dD9L0t+aGcUPnVZVjMl6X2+f8ACAb7CoDT9LSquMyZiAtRFbZ/19zozEZdAgwA1dTDEeegbipmBrgZ7i5vN2BQcDvcdb064Cdgc/Gjj3Rpk9/aTVwTChU9G/gaOBdYAyu8Gtw00nDgT3897bNMa7wwz4LjMRN6bQRawDOX/0J3NxgIa6VqsURaD8cSfP9dJ/B7TfRz7fcDwLqO+YzbT2any4QIh0YhtlIYB+T6gXvAw8KfWxQn/CLmVtM4z+6Jqe/MddwrcGcymMz5vhn0w0FskBnIvqDPl9/QuZbJt4TWpVWNKezRmAebvVwFq6QV/j3w8CrwCl8a40Pm9Fwzjln1E2d+lQTbS7m31rnf46b19sV+ABHsJqxY0+snz79pVq2/J2OwdmcdsO1apEYhrPaD8QRPMd/l+Fav7dxrVLz2Wef0TB16lNxwHnTp780Gkfkv2/DN9lmND9V4IF/4KWrKINwFfFt4BnMPo8/7YefD/2Dfd7TX5sLrhYtBBZWHZ85lW+7mTEY55psVdWJmeWIcmBl/xd36JG+YZwB8W2gAUf4NqzFdW/H4/TG/4R1uIni63CTyVvjMVCBM4ae7V9H4hsc2T/xf9+NI67hyPh0u/CtwBt+frbpgO+tRdOTI+ORBiPLtjBHInYSfIYoBr0vWBV/+sxtOtF+mxdT9P+/imbcdMWyqhMyn8cx/FAgV3ASomb92Ky3gWLEp4GAGvo+X76tr9scDPg8GCz8CCAUKtqr3fO3cDpYIpAskT116lNVOGVz49SO7yLTdgTcMpweJmD09OkvrcepAa8Dh4RCRQW4ieEWHJm/Ab0NdjjuIMhXIt7/WTBYWOLLlosjeFur9mu+e8ZOuC0/oVDRasDz8/RZMFjYIb2A2z1QycDeEvm48ko0WIKbtVhgxrrEM2Ztt2rTIat0+v+zIoxr7r9cf1LWy0A62CG4bmoCWGtrq81f/4usYmSLkWrSnt/ulckVOB2oDf/G6YYfAmtPPvmk2mnTXrwdR5QlOOKnAtNw83iRaAZCQPPJJ5+0Ydq0F5/EdVdpuFakBKcf7euH/wvwNdA3GDzBQqGiabjWKFKWyON71wDPB4OFKwBCoaKncSPKGmBVQ0MjuGmn5X74thM0+wMrcaTbJjQ9NlKIVOBAwuQjOxDRCpqPa6mXCNUknNWx+4Ht0OUTVWMzkcvU/ogspBGIeIlPDN6SWAis6/dcp+llPQJNj4z0ED8CDkYahWwIUI14B1EBLE88r7jhe5LZLnTauhwBVadkJUnsicg0yPAzvxJRAryDWJX2zJyYst10FTQ+NDIe2W5II4BsxCCJL5EqkL0LrEy8oLjTzqmO2oKv9adlxSF2w51GmisxBLEWMRepDOyzfv87J6a2HYolSNDwwMgkib1M5AkOR/Q1t/9DOWIBsCbpouKo9AYxsZKw+ldZHjAAMQyRAxyAaEG8C5QifYyo7fdkhyr/XQ6N9+fDt6pFvvteErBAogKxSNL6hIu3X/neXsQEsSJRfWa2MOuLOBCRiXS4RLzBYolixIcGVf3+Wt4j9LKGe/M9RLrQwYiRiL3BGv1KNwexzFBd8mXF35tWZyLmiBWJb87OJkEkC/YyGOFaMxuA9CliBmK+xNepj5V3K72s4e78OMRAXPd2FGIgYrWk2Yj5wMqky4s7xda1rYhpYrVH9blZ8YjBoIMlCnB62RqkUrA5iC9TH4mt7SB/CCSovyM/ETFYbmCTi0iVWGZQhhs9r0oeX9JlWukuRaxI1FyQ7SF2AQ5CFOAmSZsQsxGlSMsF9X0fKvu+pKKC+j/kS24Rx1BkuUhHAh5iAWIOYrGgMunqkqjrS9uCLkusSNSMy26bNN0fKRcxHCGJ94FZJpaC1aT+qTyqhVR/W56HSJM40NmXOAhoRMwF5iE+BqtJvrb0+5KKeXQLYkWi5uIcEH0khgKZJjLcSMr+jfQWYqHEur73l3VKt1J/a14czptiOK773hOxTlKZr4AvT76+JKZ83ToC3Y5Y7VFzaU4isiFIw/35sYGIrxAzcUbZ1X3vLesw5V+Cusm5iUi7AlmIXN8Q/JnrovkA+DLlxtJOM1ZGA92eWJGovTzHudLCMEQesCeiDlGCqJC0MiUcbtQ9W2cvq78pD0SKYXtJygXLRopHLEHMllhk8E3KhNIuo3xvL3oUsSJRe2WOB6T79rIspIMlwoh5wGyTfWJGXepdZZvVy+p+lys3ctP+vn1pOLABp9eVI/sIVJ0yqbRLKt/bix5LrEjUXZ0HWCpiP8SRhmUgkpAWgc2Qp8XAejyEWxg7DDEKsS+iUtI8nPK93Dzq+0zq+sr39qKXWO0goOaanGSnZOsIiRzc9tifI+IRg4Cv/O5zAfB5n1tnd2t9aVvQS6zvQd31uW1kGoZo9O1LX6fcPnubPCt70Yte9KIXvehFj8D/B/Yf/Pj5T4ANAAAAAElFTkSuQmCC" alt="AdvnturHub — Find Your Path">
+    </a>
+    <div class="nav-links">
+      <a href="#explore">Explore</a>
+      <a href="#day-trips">Day Trips</a>
+      <a href="#weekend">Weekend Getaways</a>
+      <a href="#guides">Guides</a>
+      <a href="#shop">Shop</a>
+    </div>
+    <a href="#explore" class="btn btn-primary">Find Your Path</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow-tag"><span class="eyebrow-dot"></span> Adventures within reach, fully planned</span>
+        <h1>Stop wondering what to do this weekend. <em>Start executing it.</em></h1>
+        <p class="lede">AdvnturHub doesn't hand you a pin on a map — it hands you the whole day: cost, difficulty, parking, permits, and a backup plan if the weather turns.</p>
+        <div class="hero-ctas">
+          <a href="#explore" class="btn btn-primary">Find Your Path</a>
+          <a href="#how-it-works" class="btn btn-ghost">See how a plan works ↓</a>
+        </div>
+      </div>
+
+      <div class="proof" id="how-it-works">
+        <span class="proof-label">Example plan</span>
+        <h3>Sunrise Ridge Overlook</h3>
+        <p class="sub">38 min from downtown · Easy loop, big payoff</p>
+        <div class="proof-facts">
+          <div class="fact"><span class="k">Cost</span><span class="v">Free</span></div>
+          <div class="fact"><span class="k">Difficulty</span><span class="v">Easy</span></div>
+          <div class="fact"><span class="k">Duration</span><span class="v">2.5 hrs</span></div>
+          <div class="fact"><span class="k">Parking</span><span class="v">Free lot</span></div>
+          <div class="fact"><span class="k">Permit</span><span class="v">None needed</span></div>
+          <div class="fact"><span class="k">Dog-friendly</span><span class="v">Yes, leashed</span></div>
+        </div>
+        <p class="proof-note"><strong style="color:var(--paper)">Rain backup:</strong> covered overlook pavilion 10 min away, viewpoint still works in light rain. This is illustrative example content — no real trail data yet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLORE -->
+  <section id="explore">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Adventures near you</h2>
+        <p>Every entry below is a fully fictional example built to show the format — real listings replace these once local content is written.</p>
+      </div>
+
+      <div class="filters">
+        <button class="filter-chip active" type="button">All</button>
+        <button class="filter-chip" type="button">Under 1 hour</button>
+        <button class="filter-chip" type="button">Family-friendly</button>
+        <button class="filter-chip" type="button">Dog-friendly</button>
+        <button class="filter-chip" type="button">Free</button>
+        <button class="filter-chip" type="button">Accessible</button>
+      </div>
+
+      <div class="card-grid">
+
+        <article class="card">
+          <div class="card-top">
+            <div class="hex"><svg viewBox="0 0 24 24"><path d="M3 18l5-8 4 5 3-4 6 7"/></svg></div>
+            <span class="example-badge">Example</span>
+          </div>
+          <div>
+            <h3>Sunrise Ridge Overlook</h3>
+            <p class="cat">Hiking · Scenic overlook</p>
+          </div>
+          <p class="hook">A 3-mile out-and-back that clears the tree line in the last 15 minutes for a payoff view over the whole valley.</p>
+          <div class="card-meta">
+            <span class="meta-chip">38 min</span>
+            <span class="meta-chip">Easy</span>
+            <span class="meta-chip cost">Free</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <div class="hex"><svg viewBox="0 0 24 24"><path d="M4 16c3-4 5 4 8 0s5-8 8-2"/><path d="M2 20h20"/></svg></div>
+            <span class="example-badge">Example</span>
+          </div>
+          <div>
+            <h3>Millbrook Paddle Trail</h3>
+            <p class="cat">Kayaking · Water</p>
+          </div>
+          <p class="hook">Calm flatwater loop past three swimming holes. Rentals on-site if you don't own a boat — no permit required for day use.</p>
+          <div class="card-meta">
+            <span class="meta-chip">55 min</span>
+            <span class="meta-chip">Moderate</span>
+            <span class="meta-chip cost">$25 rental</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <div class="hex"><svg viewBox="0 0 24 24"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M4 21h16"/></svg></div>
+            <span class="example-badge">Example</span>
+          </div>
+          <div>
+            <h3>Coldwater Falls &amp; Orchard Stop</h3>
+            <p class="cat">Day trip · Waterfall + food stop</p>
+          </div>
+          <p class="hook">Short waterfall walk paired with a working orchard stand 8 minutes away — built for a half-day with kids in tow.</p>
+          <div class="card-meta">
+            <span class="meta-chip">1 hr 10</span>
+            <span class="meta-chip">Easy</span>
+            <span class="meta-chip cost">Free–$10</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <div class="hex"><svg viewBox="0 0 24 24"><path d="M4 20l6-14 4 8 2-4 4 10"/></svg></div>
+            <span class="example-badge">Example</span>
+          </div>
+          <div>
+            <h3>Ashgrove Cabin Weekend</h3>
+            <p class="cat">Weekend getaway · Cabin</p>
+          </div>
+          <p class="hook">A two-night, low-key basecamp: one trailhead, one lake, and a wood stove. Booked directly through the site's affiliate partner.</p>
+          <div class="card-meta">
+            <span class="meta-chip">2 hr 15</span>
+            <span class="meta-chip">Easy</span>
+            <span class="meta-chip cost">From $180/night</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST / POSITIONING -->
+  <section>
+    <div class="wrap trust-grid">
+      <div class="manifesto">
+        <h2 style="margin-bottom:1.1rem;">A place to visit isn't a plan.</h2>
+        <p>Most sites stop at <strong>where</strong>. A pin, a photo, a five-star rating. That's the easy 80% — and it leaves you doing the hard 20% yourself: is there parking, do you need a permit, will the kids make it, what happens if it rains.</p>
+        <p>AdvnturHub starts where those sites stop. <strong>Every adventure is written as a plan you can execute</strong>, not a place you still have to research.</p>
+        <div class="rule">Whether it's a mainstream draw or a legitimately hidden spot, if it can't answer these questions, it isn't ready to publish here.</div>
+      </div>
+
+      <div class="checklist">
+        <h3>What every adventure page answers</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Cost, and what it actually includes</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Difficulty, honestly rated for beginners too</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Where to park, and whether it fills up</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Permits or reservations, if any</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Family, dog, and accessibility fit</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> A backup plan if weather or access changes</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="data:image/png;base64,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" alt="AdvnturHub">
+        <p>Executable adventure plans for the couple of hours or couple of days you actually have.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#explore">Things to Do</a></li>
+          <li><a href="#explore">Day Trips</a></li>
+          <li><a href="#explore">Weekend Getaways</a></li>
+          <li><a href="#guides">Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Support / Donate</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Affiliate Disclosure</a></li>
+          <li><a href="#">Safety Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="legal-strip">
+      <p><strong style="color:var(--paper-dim)">Placeholder legal copy — not yet reviewed by counsel.</strong> This site may contain affiliate links; AdvnturHub may earn a commission on qualifying purchases at no extra cost to you, per FTC disclosure requirements. Outdoor conditions change — verify current trail, weather, and access conditions before you go. AdvnturHub is not liable for outdoor risk. Full privacy policy, terms of service, and a counsel-reviewed safety disclaimer are required before production launch.</p>
+      <div class="copyright">
+        <span>© 2026 AdvnturHub. All rights reserved.</span>
+        <span>Find Your Path</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

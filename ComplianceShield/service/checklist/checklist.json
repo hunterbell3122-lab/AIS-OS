@@ -1,0 +1,128 @@
+{
+  "source": "shared/knowledge-base-export.md",
+  "domains": [
+    {
+      "id": "osha",
+      "name": "OSHA (29 CFR 1926)",
+      "questions": [
+        {"id": "osha_01", "text": "Fall protection systems (guardrails, harnesses, or nets) are in place for all work at 6+ feet.", "severity": "critical", "citation": "29 CFR 1926.501"},
+        {"id": "osha_02", "text": "A written fall protection plan is on file for the job site.", "severity": "medium", "citation": "29 CFR 1926.502"},
+        {"id": "osha_03", "text": "Scaffolding is erected and inspected by a documented competent person.", "severity": "high", "citation": "29 CFR 1926.451"},
+        {"id": "osha_04", "text": "Guardrails and toe boards are installed on all scaffold platforms above 10 feet.", "severity": "high", "citation": "29 CFR 1926.451"},
+        {"id": "osha_05", "text": "Scaffold load ratings are documented and not exceeded.", "severity": "medium", "citation": "29 CFR 1926.451"},
+        {"id": "osha_06", "text": "A written Hazard Communication (HazCom) program is on file.", "severity": "high", "citation": "29 CFR 1926.59"},
+        {"id": "osha_07", "text": "Safety Data Sheets (SDS) are accessible on-site for every chemical present.", "severity": "high", "citation": "29 CFR 1926.59"},
+        {"id": "osha_08", "text": "All temporary wiring and outlets are protected with GFCI.", "severity": "critical", "citation": "29 CFR 1926.405"},
+        {"id": "osha_09", "text": "Electrical panels and temporary power are inspected before use.", "severity": "medium", "citation": "29 CFR 1926.405"},
+        {"id": "osha_10", "text": "Trenches 5+ feet deep are protected by shoring, sloping, or a trench box.", "severity": "critical", "citation": "29 CFR 1926.652"},
+        {"id": "osha_11", "text": "Daily trench inspections are documented by a competent person.", "severity": "high", "citation": "29 CFR 1926.651"},
+        {"id": "osha_12", "text": "An OSHA 300 Log is maintained and available on-site (required at 11+ employees).", "severity": "medium", "citation": "29 CFR 1904"},
+        {"id": "osha_13", "text": "The OSHA 300A annual summary is posted each year from February 1 through April 30.", "severity": "low", "citation": "29 CFR 1904.32"},
+        {"id": "osha_14", "text": "Ladders are inspected and properly secured before use.", "severity": "high", "citation": "29 CFR 1926.1053"},
+        {"id": "osha_15", "text": "Required PPE (hard hats, eye protection) is provided and worn.", "severity": "high", "citation": "29 CFR 1926.95"},
+        {"id": "osha_16", "text": "A heat illness prevention plan is in place for outdoor crews.", "severity": "medium", "citation": "OSHA General Duty Clause"},
+        {"id": "osha_17", "text": "Toolbox talks / safety training sessions are documented at regular intervals.", "severity": "low", "citation": "29 CFR 1926 Subpart C"},
+        {"id": "osha_18", "text": "An emergency action plan is posted and communicated to all workers.", "severity": "medium", "citation": "29 CFR 1926.35"}
+      ]
+    },
+    {
+      "id": "licensing",
+      "name": "DBPR / CILB Licensing",
+      "questions": [
+        {"id": "lic_01", "text": "The contractor holds an active, unrestricted CILB license in the operating entity's name.", "severity": "critical", "citation": "F.S. 489.127"},
+        {"id": "lic_02", "text": "All work performed falls within the license category scope (Certified vs. Registered).", "severity": "critical", "citation": "F.S. 489.127"},
+        {"id": "lic_03", "text": "County/local registration is current where Registered-category work occurs.", "severity": "high", "citation": "F.S. 489"},
+        {"id": "lic_04", "text": "14 hours of continuing education per biennium are complete, including the required safety, business practices, workers' comp, and wind mitigation hours.", "severity": "high", "citation": "F.S. 489 CE requirements"},
+        {"id": "lic_05", "text": "Financial responsibility documentation (net worth, credit history) is current for renewal.", "severity": "medium", "citation": "DBPR/CILB renewal rules"},
+        {"id": "lic_06", "text": "The qualifying agent is actively and directly supervising operations.", "severity": "critical", "citation": "DBPR/CILB qualifying agent rules"},
+        {"id": "lic_07", "text": "A plan exists to replace the qualifying agent within 60 days if they depart.", "severity": "medium", "citation": "DBPR/CILB qualifying agent rules"},
+        {"id": "lic_08", "text": "All permits are pulled by a properly licensed individual.", "severity": "critical", "citation": "F.S. 489.127"},
+        {"id": "lic_09", "text": "No unlicensed-activity findings or pending DBPR disciplinary action exist.", "severity": "high", "citation": "F.S. 489.127"},
+        {"id": "lic_10", "text": "The business name/DBA in use matches the name on file with DBPR.", "severity": "low", "citation": "DBPR licensing records"},
+        {"id": "lic_11", "text": "A certificate of insurance on file matches license requirements.", "severity": "medium", "citation": "DBPR/CILB renewal rules"},
+        {"id": "lic_12", "text": "The license renewal deadline is tracked and has not lapsed.", "severity": "high", "citation": "F.S. 489"},
+        {"id": "lic_13", "text": "Every subcontractor engaged is verified as properly licensed before work begins.", "severity": "high", "citation": "F.S. 489.127"},
+        {"id": "lic_14", "text": "No employees perform work requiring a license they do not individually hold.", "severity": "critical", "citation": "F.S. 489.127"},
+        {"id": "lic_15", "text": "Advertising and marketing materials display the license number as required.", "severity": "low", "citation": "F.S. 489"}
+      ]
+    },
+    {
+      "id": "workers_comp",
+      "name": "Workers' Compensation",
+      "questions": [
+        {"id": "wc_01", "text": "Workers' compensation coverage is in force for all employees (1+ employee threshold).", "severity": "critical", "citation": "F.S. 440"},
+        {"id": "wc_02", "text": "An owner exemption is filed correctly if the owner claims exempt status.", "severity": "medium", "citation": "F.S. 440.05"},
+        {"id": "wc_03", "text": "Policy class codes match the work actually performed.", "severity": "high", "citation": "F.S. 440 class code rules"},
+        {"id": "wc_04", "text": "No open stop-work order exists from the Florida Division of Workers' Compensation.", "severity": "critical", "citation": "F.S. 440.107"},
+        {"id": "wc_05", "text": "A certificate of insurance is requested and verified for every subcontractor before they start work.", "severity": "critical", "citation": "F.S. 440.10"},
+        {"id": "wc_06", "text": "Subcontractor COIs are kept on file and checked for current expiration.", "severity": "high", "citation": "F.S. 440.10"},
+        {"id": "wc_07", "text": "Annual payroll audit records are reconciled against policy class codes.", "severity": "medium", "citation": "F.S. 440 insurer audit rules"},
+        {"id": "wc_08", "text": "No history of misclassifying employees as 1099 subcontractors to avoid coverage.", "severity": "critical", "citation": "F.S. 440 / IRS classification rules"},
+        {"id": "wc_09", "text": "Policy premium is current with no lapses in coverage.", "severity": "high", "citation": "F.S. 440"},
+        {"id": "wc_10", "text": "A job-site injury reporting procedure is documented and communicated to workers.", "severity": "medium", "citation": "F.S. 440.185"},
+        {"id": "wc_11", "text": "A return-to-work / modified duty policy exists.", "severity": "low", "citation": "F.S. 440 best practice"},
+        {"id": "wc_12", "text": "The experience modification rate (EMR) is reviewed annually.", "severity": "low", "citation": "F.S. 440 insurer audit rules"},
+        {"id": "wc_13", "text": "Coverage limits are adequate for project size and GC requirements.", "severity": "medium", "citation": "F.S. 440"},
+        {"id": "wc_14", "text": "Records are retained for the 2-year lookback period insurers/DWC may audit.", "severity": "medium", "citation": "F.S. 440.107"}
+      ]
+    },
+    {
+      "id": "environmental",
+      "name": "EPA / Environmental",
+      "questions": [
+        {"id": "env_01", "text": "EPA RRP firm certification is current for any work on pre-1978 buildings.", "severity": "critical", "citation": "EPA RRP Rule"},
+        {"id": "env_02", "text": "All renovators performing RRP work are individually certified/trained.", "severity": "critical", "citation": "EPA RRP Rule"},
+        {"id": "env_03", "text": "Lead-safe containment practices (plastic sheeting, dust control) are documented on RRP jobs.", "severity": "high", "citation": "EPA RRP Rule"},
+        {"id": "env_04", "text": "Pre-renovation lead disclosure/notification is provided to occupants.", "severity": "medium", "citation": "EPA RRP Rule"},
+        {"id": "env_05", "text": "A SWPPP is prepared for any site disturbing 1+ acre.", "severity": "critical", "citation": "FDEP NPDES"},
+        {"id": "env_06", "text": "An NPDES permit is obtained through FDEP before land-disturbing activity begins.", "severity": "critical", "citation": "FDEP NPDES"},
+        {"id": "env_07", "text": "Erosion/sediment controls are inspected and maintained per the SWPPP schedule.", "severity": "medium", "citation": "FDEP NPDES"},
+        {"id": "env_08", "text": "An asbestos inspection is completed before demolition or renovation of commercial structures.", "severity": "critical", "citation": "EPA NESHAP"},
+        {"id": "env_09", "text": "NESHAP notification is filed with the appropriate agency before demolition.", "severity": "high", "citation": "EPA NESHAP"},
+        {"id": "env_10", "text": "Hazardous waste (paint, solvents, adhesives) is disposed of per EPA/FDEP requirements.", "severity": "medium", "citation": "EPA/FDEP waste rules"},
+        {"id": "env_11", "text": "A spill response plan/kit is available on job sites using hazardous materials.", "severity": "low", "citation": "EPA/FDEP best practice"},
+        {"id": "env_12", "text": "Underground storage tank removal, where applicable, is permitted and documented.", "severity": "medium", "citation": "FDEP UST rules"},
+        {"id": "env_13", "text": "Wetlands/environmental resource permits are obtained where required.", "severity": "medium", "citation": "FDEP ERP"},
+        {"id": "env_14", "text": "Dust/air quality controls are in place for demolition work.", "severity": "medium", "citation": "EPA NESHAP"}
+      ]
+    },
+    {
+      "id": "building_code",
+      "name": "Florida Building Code / HVHZ",
+      "questions": [
+        {"id": "fbc_01", "text": "All permitted work complies with the current Florida Building Code edition.", "severity": "high", "citation": "FBC 8th Edition"},
+        {"id": "fbc_02", "text": "Building plans reflect the current code cycle, not a superseded edition.", "severity": "medium", "citation": "FBC 8th Edition"},
+        {"id": "fbc_03", "text": "HVHZ product approvals (NOA) are on file for materials used in Miami-Dade/Broward.", "severity": "critical", "citation": "FBC HVHZ"},
+        {"id": "fbc_04", "text": "Roofing/window/door products match approved NOA listings for the region.", "severity": "high", "citation": "FBC HVHZ"},
+        {"id": "fbc_05", "text": "Wind-load calculations are documented for HVHZ projects.", "severity": "high", "citation": "FBC HVHZ"},
+        {"id": "fbc_06", "text": "Energy code compliance (insulation, HVAC, fenestration) is documented at permit.", "severity": "medium", "citation": "FBC Energy Code"},
+        {"id": "fbc_07", "text": "Required inspections are scheduled and passed at each construction milestone.", "severity": "high", "citation": "FBC permitting"},
+        {"id": "fbc_08", "text": "As-built plans are retained and match the permitted scope.", "severity": "low", "citation": "FBC permitting"},
+        {"id": "fbc_09", "text": "No open or expired permits exist on active or recently completed jobs.", "severity": "high", "citation": "FBC permitting"},
+        {"id": "fbc_10", "text": "Flood zone / elevation certificate requirements are met where applicable.", "severity": "medium", "citation": "FBC / FEMA flood provisions"},
+        {"id": "fbc_11", "text": "Impact-resistant or shutter compliance is verified for hurricane-zone openings.", "severity": "high", "citation": "FBC HVHZ"},
+        {"id": "fbc_12", "text": "Product approval documentation is available for client/inspector review.", "severity": "low", "citation": "FBC HVHZ"},
+        {"id": "fbc_13", "text": "Code-required accessibility (ADA) provisions are met on commercial work.", "severity": "medium", "citation": "FBC Accessibility"}
+      ]
+    },
+    {
+      "id": "employment_tax",
+      "name": "Employment & Tax Compliance",
+      "questions": [
+        {"id": "emp_01", "text": "Worker classification (employee vs. 1099) is reviewed against the IRS common-law test.", "severity": "critical", "citation": "IRS common-law rules"},
+        {"id": "emp_02", "text": "E-Verify enrollment is current where required (private employers 25+ employees, or public contractors).", "severity": "critical", "citation": "SB 1718"},
+        {"id": "emp_03", "text": "E-Verify checks are completed and documented for all new hires subject to the requirement.", "severity": "high", "citation": "SB 1718"},
+        {"id": "emp_04", "text": "No open misclassification disputes exist with the IRS or Florida Department of Revenue.", "severity": "high", "citation": "IRS / FL DOR"},
+        {"id": "emp_05", "text": "Sales tax on building materials is collected/remitted correctly as the end consumer.", "severity": "high", "citation": "FL DOR"},
+        {"id": "emp_06", "text": "Florida Department of Revenue registration is current.", "severity": "medium", "citation": "FL DOR"},
+        {"id": "emp_07", "text": "Payroll tax withholding and filings are current (federal and state).", "severity": "high", "citation": "IRS / FL DOR"},
+        {"id": "emp_08", "text": "1099s are issued correctly and on time for legitimate subcontractors.", "severity": "medium", "citation": "IRS 1099 rules"},
+        {"id": "emp_09", "text": "I-9 forms are completed and retained for all employees.", "severity": "high", "citation": "8 U.S.C. 1324a"},
+        {"id": "emp_10", "text": "No unpaid wage claims or Department of Labor complaints are pending.", "severity": "medium", "citation": "FLSA"},
+        {"id": "emp_11", "text": "Overtime is calculated correctly per FLSA for non-exempt employees.", "severity": "medium", "citation": "FLSA"},
+        {"id": "emp_12", "text": "Independent contractor agreements are in writing and consistent with the actual working relationship.", "severity": "medium", "citation": "IRS common-law rules"},
+        {"id": "emp_13", "text": "Records are retained per IRS/DOR statute of limitations for audits.", "severity": "low", "citation": "IRS / FL DOR"}
+      ]
+    }
+  ]
+}

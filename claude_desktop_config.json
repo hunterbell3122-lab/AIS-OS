@@ -1,0 +1,48 @@
+{
+  "coworkUserFilesPath": "C:\\Users\\hunte\\OneDrive\\Documents\\Claude",
+  "preferences": {
+    "launchPreviewPersistedWorkspaces": [],
+    "launchPreviewSessionScopedSessions": [],
+    "coworkScheduledTasksEnabled": true,
+    "coworkHipaaRestricted": false,
+    "ccdScheduledTasksEnabled": true,
+    "sidebarMode": "chat",
+    "bypassPermissionsGateByAccount": {
+      "7dfd5699-66b5-4742-be80-cf4e050cf69f": false
+    },
+    "coworkWebSearchEnabled": true,
+    "coworkModelAutoFallbackByAccount": {
+      "7dfd5699-66b5-4742-be80-cf4e050cf69f": true
+    },
+    "coworkOnboardingResumeStep": {
+      "step": "ios",
+      "accountKey": "a6941eef-6908-4ca3-9988-a8427e3a09e0:7dfd5699-66b5-4742-be80-cf4e050cf69f"
+    },
+    "remoteToolsDeviceName": "z3us",
+    "epitaxyPrefs": {
+      "starred-local-code-sessions": [],
+      "starred-cowork-spaces": [],
+      "starred-session-groups": [],
+      "dframe-local-slice": {
+        "pinnedOrder": [],
+        "homeProjectsPinnedOrder": []
+      },
+      "desktop-frame.paneStore.v1": {
+        "state": {
+          "extraPanesByMode": {},
+          "colWeightsByMode": {},
+          "rowSplit": 0.5,
+          "draftNonce": 0
+        },
+        "version": 4
+      },
+      "ccd-sessions-filter": {
+        "state": {
+          "selectedProjects": []
+        },
+        "version": 0
+      },
+      "dframe-group-scopes": {}
+    }
+  }
+}
