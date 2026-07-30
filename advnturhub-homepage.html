@@ -135,8 +135,48 @@ FORM: editorial single-column long scroll; the trust section pairs manifesto cop
     background: rgba(245,241,234,0.04);
   }
 
+  /* ---------- mobile nav ---------- */
+  .menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px; height: 40px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--paper);
+  }
+  .menu-toggle svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .menu-toggle .icon-close { display: none; }
+  .menu-toggle[aria-expanded="true"] .icon-open { display: none; }
+  .menu-toggle[aria-expanded="true"] .icon-close { display: block; }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.5rem clamp(1.25rem, 4vw, 3rem) 1.2rem;
+    border-top: 1px solid var(--border);
+    background: var(--charcoal-2);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    padding: 0.85rem 0.2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu a:last-of-type { border-bottom: none; }
+  .mobile-menu .btn { margin-top: 0.9rem; justify-content: center; }
+
   @media (max-width: 720px) {
     .nav-links { display: none; }
+    .menu-toggle { display: inline-flex; }
+    .nav-cta { display: none; }
+  }
+  @media (min-width: 721px) {
+    .mobile-menu { display: none !important; }
   }
   @media (max-width: 480px) {
     nav { padding: 0.75rem 1rem; }
@@ -350,6 +390,19 @@ FORM: editorial single-column long scroll; the trust section pairs manifesto cop
   }
   .meta-chip.cost { color: var(--charcoal); background: var(--gradient); }
 
+  .empty-state {
+    display: none;
+    margin-top: 1.5rem;
+    padding: 1.4rem;
+    text-align: center;
+    color: var(--paper-dim);
+    background: var(--charcoal-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+  .empty-state:not([hidden]) { display: block; }
+  .card.js-hidden { display: none; }
+
   /* ---------- trust / positioning: manifesto + second proof panel, not icon cards ---------- */
   .trust-grid {
     display: grid;
@@ -444,8 +497,20 @@ FORM: editorial single-column long scroll; the trust section pairs manifesto cop
       <a href="#guides">Guides</a>
       <a href="#shop">Shop</a>
     </div>
-    <a href="#explore" class="btn btn-primary">Find Your Path</a>
+    <a href="#explore" class="btn btn-primary nav-cta">Find Your Path</a>
+    <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg class="icon-open" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#explore">Explore</a>
+    <a href="#day-trips">Day Trips</a>
+    <a href="#weekend">Weekend Getaways</a>
+    <a href="#guides">Guides</a>
+    <a href="#shop">Shop</a>
+    <a href="#explore" class="btn btn-primary">Find Your Path</a>
+  </div>
 </header>
 
 <main id="top">
@@ -488,18 +553,18 @@ FORM: editorial single-column long scroll; the trust section pairs manifesto cop
         <p>Every entry below is a fully fictional example built to show the format — real listings replace these once local content is written.</p>
       </div>
 
-      <div class="filters">
-        <button class="filter-chip active" type="button">All</button>
-        <button class="filter-chip" type="button">Under 1 hour</button>
-        <button class="filter-chip" type="button">Family-friendly</button>
-        <button class="filter-chip" type="button">Dog-friendly</button>
-        <button class="filter-chip" type="button">Free</button>
-        <button class="filter-chip" type="button">Accessible</button>
+      <div class="filters" role="group" aria-label="Filter adventures">
+        <button class="filter-chip active" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-chip" type="button" data-filter="under1hr" aria-pressed="false">Under 1 hour</button>
+        <button class="filter-chip" type="button" data-filter="family" aria-pressed="false">Family-friendly</button>
+        <button class="filter-chip" type="button" data-filter="dog" aria-pressed="false">Dog-friendly</button>
+        <button class="filter-chip" type="button" data-filter="free" aria-pressed="false">Free</button>
+        <button class="filter-chip" type="button" data-filter="accessible" aria-pressed="false">Accessible</button>
       </div>
 
-      <div class="card-grid">
+      <div class="card-grid" id="cardGrid">
 
-        <article class="card">
+        <article class="card" data-tags="under1hr family free dog">
           <div class="card-top">
             <div class="hex"><svg viewBox="0 0 24 24"><path d="M3 18l5-8 4 5 3-4 6 7"/></svg></div>
             <span class="example-badge">Example</span>
@@ -516,7 +581,7 @@ FORM: editorial single-column long scroll; the trust section pairs manifesto cop
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-tags="under1hr">
           <div class="card-top">
             <div class="hex"><svg viewBox="0 0 24 24"><path d="M4 16c3-4 5 4 8 0s5-8 8-2"/><path d="M2 20h20"/></svg></div>
             <span class="example-badge">Example</span>
@@ -533,7 +598,7 @@ FORM: editorial single-column long scroll; the trust section pairs manifesto cop
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-tags="family">
           <div class="card-top">
             <div class="hex"><svg viewBox="0 0 24 24"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M4 21h16"/></svg></div>
             <span class="example-badge">Example</span>
@@ -550,7 +615,7 @@ FORM: editorial single-column long scroll; the trust section pairs manifesto cop
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-tags="">
           <div class="card-top">
             <div class="hex"><svg viewBox="0 0 24 24"><path d="M4 20l6-14 4 8 2-4 4 10"/></svg></div>
             <span class="example-badge">Example</span>
@@ -568,6 +633,7 @@ FORM: editorial single-column long scroll; the trust section pairs manifesto cop
         </article>
 
       </div>
+      <p class="empty-state" id="emptyState" hidden>No examples tagged for this filter yet — real listings will fill this in as they're published.</p>
     </div>
   </section>
 
@@ -617,7 +683,8 @@ FORM: editorial single-column long scroll; the trust section pairs manifesto cop
         <h4>Company</h4>
         <ul>
           <li><a href="#">About</a></li>
-          <li><a href="#">Shop</a></li>
+          <li><a href="#">Partners</a></li>
+          <li><a href="#shop">Shop</a></li>
           <li><a href="#">Support / Donate</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
@@ -643,5 +710,57 @@ FORM: editorial single-column long scroll; the trust section pairs manifesto cop
   </div>
 </footer>
 
+
+<script>
+  (function () {
+    var toggle = document.getElementById('menuToggle');
+    var menu = document.getElementById('mobileMenu');
+    if (toggle && menu) {
+      var closeMenu = function () {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      };
+      toggle.addEventListener('click', function () {
+        var isOpen = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+      menu.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') closeMenu();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeMenu();
+      });
+    }
+  })();
+
+  (function () {
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.filter-chip'));
+    var cards = Array.prototype.slice.call(document.querySelectorAll('#cardGrid .card'));
+    var emptyState = document.getElementById('emptyState');
+    if (!chips.length || !cards.length) return;
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        chips.forEach(function (c) {
+          c.classList.remove('active');
+          c.setAttribute('aria-pressed', 'false');
+        });
+        chip.classList.add('active');
+        chip.setAttribute('aria-pressed', 'true');
+
+        var filter = chip.getAttribute('data-filter');
+        var visibleCount = 0;
+        cards.forEach(function (card) {
+          var tags = (card.getAttribute('data-tags') || '').split(/\s+/);
+          var matches = filter === 'all' || tags.indexOf(filter) !== -1;
+          card.classList.toggle('js-hidden', !matches);
+          if (matches) visibleCount++;
+        });
+
+        if (emptyState) emptyState.hidden = visibleCount !== 0;
+      });
+    });
+  })();
+</script>
 </body>
 </html>

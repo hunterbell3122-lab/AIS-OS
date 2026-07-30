@@ -1,0 +1,16 @@
+---
+source_file: "signalforge-phase0.md"
+type: "concept"
+community: "3Ms Framework & Autonomy Levels"
+tags:
+  - graphify/concept
+  - graphify/INFERRED
+  - community/3Ms_Framework__Autonomy_Levels
+---
+
+# Initial Scoring Framework
+
+## Connections
+- [[Classifier]] - `rationale_for` [INFERRED]
+
+#graphify/concept #graphify/INFERRED #community/3Ms_Framework__Autonomy_Levels
