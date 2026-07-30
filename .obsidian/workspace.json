@@ -1,20 +1,20 @@
 {
   "main": {
-    "id": "60638038dab859f7",
+    "id": "a2b92fe2f4d2f061",
     "type": "split",
     "children": [
       {
-        "id": "cd591f174fade826",
+        "id": "992dd3d072fd26fd",
         "type": "tabs",
         "children": [
           {
-            "id": "4cd14e07c3814783",
+            "id": "353ebadee60aa7c8",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -23,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "528b9fb4f37e1e61",
+    "id": "fca97f40e5b46bb3",
     "type": "split",
     "children": [
       {
-        "id": "16aa0e4e2d45eac1",
+        "id": "837c43367a5ba9c6",
         "type": "tabs",
         "children": [
           {
-            "id": "9e1b0ec1e02ac95b",
+            "id": "853b5064f36c2e56",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -44,12 +44,12 @@
             }
           },
           {
-            "id": "921eefd476b1dcf2",
+            "id": "783c77d38bcf7f71",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#graphify/INFERRED",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -61,7 +61,7 @@
             }
           },
           {
-            "id": "50834f61705063d8",
+            "id": "be1cac26f80dc7ef",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -70,22 +70,23 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
     "width": 300
   },
   "right": {
-    "id": "38a9fc2b1a15436d",
+    "id": "b7409b39961d6968",
     "type": "split",
     "children": [
       {
-        "id": "1659b5ac6ec954cb",
+        "id": "d0cd203f3b06b91b",
         "type": "tabs",
         "children": [
           {
-            "id": "5715249877c5923d",
+            "id": "bc97616d1723e8ce",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -103,20 +104,7 @@
             }
           },
           {
-            "id": "cd56a2061df01a31",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links"
-            }
-          },
-          {
-            "id": "3cca1c55b9e15a27",
+            "id": "151b932958869785",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -131,7 +119,7 @@
             }
           },
           {
-            "id": "15f059eddbfd990f",
+            "id": "1c0cebc0c53ce8c4",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -145,7 +133,7 @@
             }
           },
           {
-            "id": "bbd2c251e5329851",
+            "id": "38df1a3ade070f01",
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -158,12 +146,12 @@
               "title": "Outline"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -176,10 +164,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "4cd14e07c3814783",
+  "active": "783c77d38bcf7f71",
   "lastOpenFiles": [
-    "Welcome.md",
-    "Untitled.md",
-    "create a link.md"
+    "Untitled 1.canvas",
+    "Untitled.canvas",
+    "graphify-out/Project Root/desktop.ini"
   ]
 }
